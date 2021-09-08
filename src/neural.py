@@ -42,6 +42,7 @@ class ANN:
         # return o & N (for backpropagation)
         return o, N
 
-    def backprop(self, X, iter, rt):
-        # TODO: implement backpropagation function
-        pass
+    def train(self, data, iter, rt):
+        # todo: implement backpropagation
+        for _ in range(iter):
+            pass
