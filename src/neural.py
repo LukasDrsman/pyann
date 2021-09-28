@@ -11,7 +11,6 @@
  #     \/__/         \/__/         \/__/         \|__|         \/__/         \/__/.py
 
 import numpy as np
-from props import *
 from math import exp
 
 def sig(x):
