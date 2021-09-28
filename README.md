@@ -36,7 +36,6 @@ The `neural.ANN.backpropagate` method handles the supervised learning of the net
 
 In `props.py`, an example input-target pair list can be found, `props.eXample`. This can be used as an example training set for a neural network with 9 inputs and 2 outputs. The code below will perform the gradient descent algorithm 3 million times with a learning rate of 0.3, using samples, defined in `props.eXample`:
 ```py
-import numpy as np
 import neural
 import props
 
