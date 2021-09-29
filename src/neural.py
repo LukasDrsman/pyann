@@ -14,15 +14,14 @@ import numpy as np
 from math import exp
 
 def sig(x):
-    a = 0
     try:
         a = 1 / (1 + exp(-x))
+        return a
     except:
         if x < 0:
-            a = 0
+            return 0
         else:
-            a = 1
-    return a
+            return 1
 
 sigv = np.vectorize(sig)
 
@@ -55,20 +54,19 @@ class ANN:
                 oc = o[-1]
                 t  = x[1]
                 deltas.append(
-                    avg * 2 * (oc - t) * oc * (np.ones(oc.shape) - oc)
+                    avg * 2 * (oc - t) * oc * (-oc + 1)
                 )
 
             dW = len(self.W) * [0]
             db = len(self.b) * [0]
             for l in range(len(self.W) - 1, -1, -1):
                 dW[l] = np.outer(deltas[0], O[0][l])
-                db[l] = deltas[0]
-                for i in range(1, len(deltas)):
-                    dW[l] = dW[l] + np.outer(deltas[i], O[i][l])
-                    db[l] = db[l] + deltas[i]
+                db[l] = eta * sum(deltas)
 
-                dW[l] = -eta * dW[l]
-                db[l] =  eta * db[l]
+                for i in range(1, len(deltas)):
+                    dW[l] += np.outer(deltas[i], O[i][l])
+
+                dW[l] *= -eta
 
                 for i in range(len(deltas)):
                     deltas[i] = self.W[l].transpose().dot(deltas[i])
