@@ -34,7 +34,7 @@ output = ann.compute(np.array([3, 5, 9]))[-1]
 ```
 The `neural.ANN.backpropagate` method handles the supervised learning of the network. It takes 3 parameters (and 1 optional), input-target pair list, number of gradient descent iterations to be performed, learning rate (gradient descent eta), and, optionally, output level (this can be either `True` or `False`).
 
-In `props.py`, an example input-target pair list can be found, `props.eXample`. This can be used as an example training set for a neural network with 9 inputs and 2 outputs. The code below will perform the gradient descent algorithm 3 million times with a learning rate of 0.3, using samples, defined in `props.eXample`:
+In `props.py`, an example input-target pair list can be found, `props.eXample`. This can be used as an example training set for a neural network with 9 inputs and 2 outputs. The code below will perform the gradient descent algorithm 3 million times with a learning rate of 0.3, using samples defined in `props.eXample`:
 ```py
 import neural
 import props
